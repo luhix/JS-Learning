@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <p id="intro">Hello JavaScript!</p>
+  <p id="p1">hello xm</p>
+  <p id="p2">hello xm</p>
+
+  <script>
+    /*
+     获取元素内容的最简单方法是使用 innerHTML 属性。
+     innerHTML 属性对于获取或替换 HTML 元素的内容很有用。
+    */
+   var txt = document.getElementById('intro').innerHTML;
+   document.write(txt); //写入获取到的内容
+
+   //改变内容
+   document.getElementById('p1').innerHTML = '新的文本内容';
+   //改变样式
+   document.getElementById('p2').style.color = '#ff8d36';
+
+   //创建元素
+   var p3 =document.createElement('p');
+   var node =document.createTextNode('这是一个新创建的段落!');
+   p3.appendChild(node);
+   document.body.appendChild(p3);
+
+   //插入到首行
+   var p4 =document.createElement('p');
+   var node =document.createTextNode('这是一个第四个段落!');
+   p4.appendChild(node);
+   var child=document.getElementById("p1");
+   document.body.insertBefore(p4, child);
+
+   //移除子节点
+   var p11 =document.getElementById('p1');
+   document.body.removeChild(p11);
+   
+  </script>
+</body>
+</html>
