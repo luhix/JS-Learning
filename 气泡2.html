@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .bkbubble {
+            width:500px;
+        }
+        .bkbubble p {
+            color: #343434;
+            display: inline-block;
+            padding: 6px;
+            margin: 10px;
+            width:auto;
+            position: relative;
+            border-radius: 5px;
+        }
+        .bkbubble.right p {
+            margin-left: 6px;
+            background-color: #FFB573;
+
+        }
+        .bkbubble.left p {
+            margin-right: 0px;
+            background-color: #D4E895;
+        }
+        .bkbubble.right p:before, .bkbubble.left p:before {
+            width: 0;
+            position: absolute;
+            bottom: 12px;
+            border-style: solid;
+            content: "";
+        }
+        .bkbubble.left {
+            text-align: right;
+        }
+        .bkbubble.right p:before {
+            left: -12px;
+            border-color: transparent #FFB573;
+            border-width: 0 12px 12px 0;
+        }
+        .bkbubble.left p:before {
+            right: -10px;
+            border-color: transparent #D4E895;
+            border-width: 0 0 12px 12px ;
+        }
+
+
+        .x{
+            width: 0;
+            position: absolute;
+            /*bottom: 12px;*/
+            /*border-style: solid;*/
+            content: "";
+            border-top: 12px solid transparent;
+            border-right: 0px solid #0000ff;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #FF8D36;
+        }
+    </style>
+
+</head>
+<body>
+<div class="bkbubble right">
+    <p id="user_content" >dddd</p>
+</div>
+<div class="bkbubble left">
+    <p id="user_content" >dddd</p>
+</div>
+<p class="x"></p>
+</body>
+</html>

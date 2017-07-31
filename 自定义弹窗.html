@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <style>
+    .popmsg{
+        background-color: rgba(66, 225, 255, 0.09);
+        border-radius: 5px;
+        position: fixed;
+        margin: auto;
+        text-align: center;
+        display: block;
+        padding: 5px;
+        color: #3c3c3c;
+        font-size: 18px;
+        z-index: 100;
+	font-family: '微软雅黑';
+	 border-radius: 50px;
+}
+.c{
+    background-color: #9F9F9F;
+    color: #FDFDFD;
+    line-height: 65px;
+    text-align: center;
+    width: 250px;
+    height: 65px;
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: '微软雅黑';
+	 border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+ <div id="main_area">
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+     <p>弹窗测试</p>
+</div>   
+<button id="ad">保存</button>
+
+
+
+<script>
+
+$('#ad').click(function(){
+     n=$('<div></div>').appendTo($('body'));
+       
+    popmsg('保存成功,2s后跳转到会议列表',n,'c');
+    //popmsg('保存成功',n,'c');
+})
+
+
+function popmsg(data,n,c)
+{
+    var node;
+    if(n !=null){
+        node = n;
+        if(c!=null) node.addClass(c);
+        //node.html(data).css('display','');
+        node.html(data);
+        setTimeout(function(){
+            node.fadeOut('slow',function(){
+                node.remove();
+             });
+        },3000);
+
+    }else{
+        var floatpatt = function(node){
+         var h = node.height();
+         var wh = $(window).height();
+         var ww = $(window).width();
+         var w = 200;
+         node.css("width",w);
+         node.css("left",(ww-w)/2);
+         node.css("top",100);
+         if(w<10&&h<10){
+         node.addClass("hidden")
+         };
+         }
+         node = $('<div class=" popmsg"  >'+data+'</div>').appendTo($('#main_area'));
+         floatpatt(node);
+         setTimeout(function(){
+         //alert('aaa');
+         node.fadeOut('slow',function(){
+             node.remove();
+         });
+         },3000);
+    }
+}
+    </script>
+</body>
+</html>
